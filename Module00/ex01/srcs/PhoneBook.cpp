@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:43:08 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/07 18:50:00 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/09/08 13:23:43 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	PhoneBook::displayByIndex(void) const {
 		}
 		else if (user_input != "q")
 			std::cout << "Error index must be a number " << std::endl;
-	} while (user_input != "q");
+	} while (user_input != "q" && !std::cin.eof());
 }
 
 void	PhoneBook::addContact(void) {
@@ -93,7 +93,7 @@ void	PhoneBook::addContact(void) {
 			std::cout << "First Name cannot be empty" << std::endl;
 		else
 			contact.setFirstName(user_input);
-	} while (user_input.empty());
+	} while (user_input.empty() && !std::cin.eof());
 
 	/* Set Last Name */
 	do {
@@ -103,7 +103,7 @@ void	PhoneBook::addContact(void) {
 			std::cout << "Last Name cannot be empty" << std::endl;
 		else
 			contact.setLastName(user_input);
-	} while (user_input.empty());
+	} while (user_input.empty() && !std::cin.eof());
 
 	/* Set Nick Name */
 	do {
@@ -113,7 +113,7 @@ void	PhoneBook::addContact(void) {
 			std::cout << "Nick Name cannot be empty" << std::endl;
 		else
 			contact.setNickName(user_input);
-	} while (user_input.empty());
+	} while (user_input.empty() && !std::cin.eof());
 
 	/* Set Phone Number */
 	do {
@@ -123,7 +123,7 @@ void	PhoneBook::addContact(void) {
 			std::cout << "Phone Number cannot be empty" << std::endl;
 		else
 			contact.setPhoneNumber(user_input);
-	} while (user_input.empty());
+	} while (user_input.empty() && !std::cin.eof());
 
 	/* Set Darkest Secret */
 	do {
@@ -133,7 +133,7 @@ void	PhoneBook::addContact(void) {
 			std::cout << "Darkest Secret cannot be empty" << std::endl;
 		else
 			contact.setDarkestSecret(user_input);
-	} while (user_input.empty());
+	} while (user_input.empty() && !std::cin.eof());
 
 	if (this->_nbContact == this->_maxContacts) {
 		std::cout << "⚠️ PhoneBook is full, contact will replace the oldest one!" << std::endl;
