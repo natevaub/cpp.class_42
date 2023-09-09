@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/08 14:38:38 by nvaubien          #+#    #+#              #
-#    Updated: 2023/09/08 14:39:23 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/09/09 18:00:25 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,10 @@ OBJS      = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o,$(SRCS))
 
 all: $(OBJS_DIR) $(NAME)
 
+compare_logs: $(NAME)
+	@./$(NAME) > logs/my_logs.log
+	@./compare_logs.sh logs/19920104_091532.log logs/my_logs.log
+
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
@@ -35,6 +39,7 @@ $(NAME): $(OBJS)
 
 clean:
 	/bin/rm -f $(OBJS_DIR)/*.o
+	/bin/rm -f logs/my_logs.log
 
 fclean: clean
 	/bin/rm -f $(NAME)
