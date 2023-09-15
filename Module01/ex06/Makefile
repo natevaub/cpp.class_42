@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/06 20:26:37 by nvaubien          #+#    #+#              #
-#    Updated: 2023/09/15 14:18:42 by nvaubien         ###   ########.fr        #
+#    Created: 2023/09/15 14:31:56 by nvaubien          #+#    #+#              #
+#    Updated: 2023/09/15 15:19:45 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME      = harl
+NAME      = harlFilter
 CC        = c++
-FLAGS     = -Wall -Wextra -Werror -std=c++98
+FLAGS     = -g -Wall -Wextra -Werror -std=c++98
 
 OBJS_DIR  = objs
 SRCS_DIR  = srcs
