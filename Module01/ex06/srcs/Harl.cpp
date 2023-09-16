@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:37:08 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/15 15:16:26 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/09/16 03:24:41 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,50 @@ Harl::Harl( void ) { }
 
 Harl::~Harl( void ) { }
 
-void	Harl::complain( std::string complain) {
-	std::string arr[4] = { "DEBUG", "INFO", "WARNING", "ERROR"};
-	void	(Harl::*ptr[4])() = { &Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
+void	Harl::complain(std::string level)
+{
+	std::string	str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void (Harl::*tab[4]) (void) = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
+	int			lvl = -1;
 
-	int i = 0;
-	while ( i < 4 ) {
-		if (complain == arr[i])
-			break;
-		i++;
+	for (int i = 0; i < 4; i++)
+	{
+		if (str[i] == level)
+			lvl = i;
 	}
 
-	switch( i ) {
+	switch (lvl)
+	{
 		case 0:
-			(this->*ptr[0])();
+		{
+			(this->*tab[0])();
+			(this->*tab[1])();
+			(this->*tab[2])();
+			(this->*tab[3])();
+		}
+		break;
 		case 1:
-			(this->*ptr[1])();
+		{
+			(this->*tab[1])();
+			(this->*tab[2])();
+			(this->*tab[3])();
+		}
+		break;
 		case 2:
-			(this->*ptr[2])();
+		{
+			(this->*tab[2])();
+			(this->*tab[3])();
+		}
+		break;
 		case 3:
-			(this->*ptr[3])();
-			break ;
+		{
+			(this->*tab[3])();
+		}
+		break;
 		default:
-			std::cout << "Probably complaining about insignificant problems" << std::endl;
-
-	}
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+		break;
+	}	
 }
 
 void	Harl::_debug( void ) {
