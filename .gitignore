@@ -1,0 +1,4 @@
+# Ignore all directories named objs
+**/objs/
+*.o
+.vscode
