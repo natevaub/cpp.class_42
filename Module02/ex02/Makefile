@@ -6,20 +6,19 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 20:26:37 by nvaubien          #+#    #+#              #
-#    Updated: 2023/09/10 18:11:09 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/09/28 21:15:25 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME      = 
+NAME      = exec
 CC        = c++
-FLAGS     = -Wall -Wextra -Werror -std=c++98
+FLAGS     = -Wall -Wextra -Werror #-std=c++98
 
 OBJS_DIR  = objs
 SRCS_DIR  = srcs
 
-SRCS      = $(SRCS_DIR)/			\
-			$(SRCS_DIR)/			\
-			$(SRCS_DIR)/			\
+SRCS      = $(SRCS_DIR)/Fixed.cpp		\
+			$(SRCS_DIR)/my_tests.cpp	\
 
 OBJS      = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o,$(SRCS))
 
@@ -42,4 +41,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re⏎              
+.PHONY: all clean fclean re
