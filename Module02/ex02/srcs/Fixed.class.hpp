@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:13:14 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/28 20:59:52 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:04:25 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,16 @@ class Fixed {
 		Fixed	operator/( const Fixed &overload ) const;
 
 		/* Post-Increment / Pre-Increment */
+		Fixed&	operator++( void );
+		Fixed	operator++( int );
+		Fixed&	operator--( void );
+		Fixed	operator--( int );
 
 		/* min / max */
+		static			Fixed&	min( Fixed &a, Fixed &b );
+		static const	Fixed&	min( const Fixed&a, const Fixed &b);
+		static			Fixed&	max( Fixed &a, Fixed &b );
+		static const	Fixed&	max( const Fixed&a, const Fixed &b);
 
 	private:
 		int						_fpoint;
