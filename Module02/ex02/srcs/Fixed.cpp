@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:14:05 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/28 21:58:57 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:26:24 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,12 @@ Fixed	Fixed::operator/( const Fixed &overload ) const {
 }
 
 /* Post-Increment / Pre-Increment */
+Fixed&	Fixed::operator++( void ) {
+
+}
+
+Fixed	Fixed::operator++( int ) {
+
+}
 
 /* min / max */
