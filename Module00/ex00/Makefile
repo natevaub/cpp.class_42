@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 18:02:32 by nvaubien          #+#    #+#              #
-#    Updated: 2023/09/06 18:40:52 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/10/14 17:00:13 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,13 +31,10 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp
 
 clean:
 	/bin/rm -rf $(OBJS_DIR)
-	@echo "🧹 Cleaned object files!"
 
 fclean: clean
 	/bin/rm -f $(NAME)
-	@echo "🧹 Cleaned executable file!"
 
 re: fclean all
-	@echo "🧹 Cleaned + 🚀 Build!"
 
 .PHONY: all clean fclean re

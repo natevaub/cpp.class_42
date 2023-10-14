@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:43:08 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/08 13:23:43 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/10/14 16:54:55 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@ void	PhoneBook::displayByIndex(void) const {
 			else {
 				std::cout << "Contact successfully found" << std::endl;
 				std::cout << "First Name : " << this->_contacts[index].getFirstName() << std::endl;
-				std::cout << "First Name : " << this->_contacts[index].getLastName() << std::endl;
-				std::cout << "First Name : " << this->_contacts[index].getNickName() << std::endl;
-				std::cout << "First Name : " << this->_contacts[index].getPhoneNumber() << std::endl;
-				std::cout << "First Name : " << this->_contacts[index].getDarkestSecret() << std::endl;
+				std::cout << "Last Name : " << this->_contacts[index].getLastName() << std::endl;
+				std::cout << "Nick Name : " << this->_contacts[index].getNickName() << std::endl;
+				std::cout << "Phone Number : " << this->_contacts[index].getPhoneNumber() << std::endl;
+				std::cout << "Darkest Secret : " << this->_contacts[index].getDarkestSecret() << std::endl;
 			}
 		}
 		else if (user_input != "q")
