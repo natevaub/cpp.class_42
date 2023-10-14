@@ -5,8 +5,9 @@ FLAGS     = -Wall -Wextra -Werror -std=c++98
 OBJS_DIR  = objs
 SRCS_DIR  = srcs
 
-SRCS      = $(SRCS_DIR)/			\
-			$(SRCS_DIR)/			\
+SRCS      = $(SRCS_DIR)/ClapTrap.cpp	\
+			$(SRCS_DIR)/ScavTrap.cpp	\
+			$(SRCS_DIR)/main.cpp	\
 
 OBJS      = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o,$(SRCS))
 
@@ -26,6 +27,7 @@ clean:
 
 fclean: clean
 	/bin/rm -f $(NAME)
+	/bin/rm -rf $(OBJS_DIR)
 
 re: fclean all
 
