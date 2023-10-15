@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:43:08 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/10/14 16:54:55 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/10/15 04:58:10 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ PhoneBook::~PhoneBook(void) {
 	std::cout << "See you next time! " << std::endl;
 }
 
+/**
+ * Check if a string contains only digits
+ * 
+ * @param str string to be checked for containing only digits
+ * @return true if the string contains only digits, false otherwise.
+*/
 bool	digitOnly(std::string str) {
 	for (size_t i = 0; i < str.length(); i++) {
 		if (str[i] < '0' || str[i] > '9')
@@ -31,6 +37,12 @@ bool	digitOnly(std::string str) {
 	return true;
 }
 
+/**
+ * Format a string to a fixed length
+ * 
+ * @param str string to be formatted
+ * @return The formated string with a length of 10 characters.
+*/
 std::string	formatString(std::string str) {
 	std::string	formatedString;
 
@@ -50,6 +62,11 @@ std::string	formatString(std::string str) {
 	return	(formatedString);
 }
 
+/**
+ * Display the contact information by index
+ * 
+ * This function allows the use to search for a contact by specifying its index.
+*/
 void	PhoneBook::displayByIndex(void) const {
 	std::cout << "🔎 Find Contact : " << std::endl;
 	std::string	user_input;
@@ -79,13 +96,17 @@ void	PhoneBook::displayByIndex(void) const {
 	} while (user_input != "q" && !std::cin.eof());
 }
 
+/**
+ * Add a contact to the phonebook
+ * 
+ * This function allows the user to add a contact to the phonebook by providing its information.
+*/
 void	PhoneBook::addContact(void) {
 	Contact	contact;
 
 	std::cout << "✔️ Add Contact" << std::endl;
 	std::string	user_input;
 
-	/* Set First Name */
 	do {
 		std::cout << "First Name : ";
 		std::getline(std::cin, user_input);
@@ -95,7 +116,6 @@ void	PhoneBook::addContact(void) {
 			contact.setFirstName(user_input);
 	} while (user_input.empty() && !std::cin.eof());
 
-	/* Set Last Name */
 	do {
 		std::cout << "Last Name : ";
 		std::getline(std::cin, user_input);
@@ -105,7 +125,6 @@ void	PhoneBook::addContact(void) {
 			contact.setLastName(user_input);
 	} while (user_input.empty() && !std::cin.eof());
 
-	/* Set Nick Name */
 	do {
 		std::cout << "Nick Name : ";
 		std::getline(std::cin, user_input);
@@ -115,7 +134,6 @@ void	PhoneBook::addContact(void) {
 			contact.setNickName(user_input);
 	} while (user_input.empty() && !std::cin.eof());
 
-	/* Set Phone Number */
 	do {
 		std::cout << "Phone Number : ";
 		std::getline(std::cin, user_input);
@@ -125,7 +143,6 @@ void	PhoneBook::addContact(void) {
 			contact.setPhoneNumber(user_input);
 	} while (user_input.empty() && !std::cin.eof());
 
-	/* Set Darkest Secret */
 	do {
 		std::cout << "Darkest Secret : ";
 		std::getline(std::cin, user_input);
@@ -155,6 +172,11 @@ void	PhoneBook::addContact(void) {
 	std::cout << "📔 PhoneBook (" << this->_nbContact << "/" << this->_maxContacts << ")" << std::endl;
 }
 
+/**
+ * Display a list of all the contacts in the phonebook.
+ * 
+ * This function displays a list of contact with their informations.
+*/
 void	PhoneBook::searchContact(void) const {
 	std::cout << "Contacts : "<< std::endl;
 	std::cout << "|     Index|First Name| Last Name| Nick Name|" << std::endl;

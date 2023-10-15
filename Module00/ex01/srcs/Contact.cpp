@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:43:16 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/06 19:03:29 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/10/15 04:42:43 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,23 @@ Contact::Contact(void) { }
 
 Contact::~Contact(void) { }
 
-void	Contact::setFirstName(std::string firstname)
-{
+void	Contact::setFirstName(std::string firstname) {
 	this->_FirstName = firstname;
 }
 
-void	Contact::setLastName(std::string lastname)
-{
+void	Contact::setLastName(std::string lastname) {
 	this->_LastName = lastname;
 }
 
-void	Contact::setNickName(std::string nickname)
-{
+void	Contact::setNickName(std::string nickname) {
 	this->_NickName = nickname;
 }
 
-void	Contact::setPhoneNumber(std::string phonenumber)
-{
+void	Contact::setPhoneNumber(std::string phonenumber) {
 	this->_PhoneNumber = phonenumber;
 }
 
-void	Contact::setDarkestSecret(std::string darkestsecret)
-{
+void	Contact::setDarkestSecret(std::string darkestsecret) {
 	this->_DarkestSecret = darkestsecret;
 }
 

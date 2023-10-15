@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 13:51:47 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/09 17:49:42 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/10/15 05:49:33 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 #include <ctime>
 
 Account::Account(int initial_deposit) :
-	_accountIndex(Account::_nbAccounts), _amount(initial_deposit),
-	_nbDeposits(0), _nbWithdrawals(0)
+	_accountIndex(Account::_nbAccounts), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0)
 {
 	Account::_displayTimestamp();
 	Account::_nbAccounts++;
