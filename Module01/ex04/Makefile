@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 20:26:37 by nvaubien          #+#    #+#              #
-#    Updated: 2023/09/14 16:34:54 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/10/17 14:14:25 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	/bin/rm -f $(OBJS_DIR)/*.o
+	/bin/rm -rf $(OBJS_DIR)
 
 fclean: clean
 	/bin/rm -f $(NAME)

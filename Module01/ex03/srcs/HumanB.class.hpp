@@ -6,12 +6,12 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:25:37 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/12 12:55:01 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/10/17 14:21:09 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef HUMANB_CLAS_HPP
+#ifndef HUMANB_CLASS_HPP
 # define HUMANB_CLASS_HPP
 
 #include <iostream>

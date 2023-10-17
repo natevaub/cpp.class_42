@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:37:08 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/16 03:24:41 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/10/17 14:16:15 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,15 @@ void	Harl::complain(std::string level)
 		case 0:
 		{
 			(this->*tab[0])();
-			(this->*tab[1])();
-			(this->*tab[2])();
-			(this->*tab[3])();
 		}
-		break;
 		case 1:
 		{
 			(this->*tab[1])();
-			(this->*tab[2])();
-			(this->*tab[3])();
 		}
-		break;
 		case 2:
 		{
 			(this->*tab[2])();
-			(this->*tab[3])();
 		}
-		break;
 		case 3:
 		{
 			(this->*tab[3])();
