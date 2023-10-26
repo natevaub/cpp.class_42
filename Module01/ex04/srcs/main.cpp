@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:59:12 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/10/17 14:17:10 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/10/26 23:22:02 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int	main(int ac, char **av) {
 	std::ifstream	infile(to_open, std::ios::in);
 
 	if (!infile.is_open()) {
-		std::cerr << "Error: Cannot open infile ❌" << std::endl;
+		std::cerr << "Error: cannot open infile!" << std::endl;
 		return (1);
 	}
 
 	std::ofstream	outfile(outName, std::ios::out);
 
 	if (!outfile.is_open()) {
-		std::cout << "Error : Cannot open outfile ❌" << std::endl;
+		std::cout << "Error: cannot open outfile!" << std::endl;
 		return (1);
 	}
 
