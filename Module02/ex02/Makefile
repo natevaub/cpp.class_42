@@ -6,7 +6,7 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 20:26:37 by nvaubien          #+#    #+#              #
-#    Updated: 2023/10/27 11:42:23 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/10/27 14:46:36 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,6 @@ clean:
 
 fclean: clean
 	/bin/rm -f $(NAME)
-	/bin/rm -r $(OBJS_DIR)
 
 re: fclean all
 

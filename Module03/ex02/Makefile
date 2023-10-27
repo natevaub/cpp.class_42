@@ -1,12 +1,14 @@
-NAME      = exec
+NAME      = fragtrap
 CC        = c++
 FLAGS     = -Wall -Wextra -Werror -std=c++98
 
 OBJS_DIR  = objs
 SRCS_DIR  = srcs
 
-SRCS      = $(SRCS_DIR)/			\
-			$(SRCS_DIR)/			\
+SRCS      = $(SRCS_DIR)/main.cpp			\
+			$(SRCS_DIR)/ClapTrap.cpp			\
+			$(SRCS_DIR)/ScavTrap.cpp			\
+			$(SRCS_DIR)/FragTrap.cpp			\
 
 OBJS      = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o,$(SRCS))
 
@@ -22,7 +24,7 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	/bin/rm -f $(OBJS_DIR)/*.o
+	/bin/rm -rf $(OBJS_DIR)
 
 fclean: clean
 	/bin/rm -f $(NAME)

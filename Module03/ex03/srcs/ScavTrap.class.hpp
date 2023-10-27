@@ -1,28 +1,32 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 03:43:22 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/10/14 03:43:25 by nvaubien         ###   ########.fr       */
+/*   Created: 2023/10/14 03:45:01 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/10/16 18:30:01 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_CLASS_HPP
+# define SCAVTRAP_CLASS_HPP
+
 #include <iostream>
 #include "ClapTrap.class.hpp"
-#include "ScavTrap.class.hpp"
-#include "FragTrap.class.hpp"
 
-int	main( void ) {
-	ClapTrap Hugo("Hughh");
+class ScavTrap : public ClapTrap {
+	public:
+		ScavTrap( void );
+		ScavTrap( std::string name );
+		~ScavTrap( void );
 
-	ScavTrap sv1("Kamaru Usman");
-	ScavTrap sv2(sv1);
-	ScavTrap sv3("Khamzat Chimaev");
-	sv3.guardGate();
-	sv3.attack("Kamaru Usman");
-	FragTrap ft1("Conor McGregor");
-}
+		ScavTrap( const ScavTrap &scavTrap );
+		ScavTrap	&operator=( const ScavTrap &rhs);
+
+		void	attack( const std::string& target);
+		void	guardGate( void );
+};
+
+#endif
