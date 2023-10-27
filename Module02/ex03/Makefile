@@ -6,11 +6,11 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 20:26:37 by nvaubien          #+#    #+#              #
-#    Updated: 2023/10/06 13:37:12 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/10/27 11:42:29 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME      = 
+NAME      = inTriangle
 CC        = c++
 FLAGS     = -Wall -Wextra -Werror -std=c++98
 
@@ -35,7 +35,7 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	/bin/rm -f $(OBJS_DIR)/*.o
+	/bin/rm -rf $(OBJS_DIR)
 
 fclean: clean
 	/bin/rm -f $(NAME)
