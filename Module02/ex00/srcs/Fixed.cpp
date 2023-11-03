@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:14:05 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/26 00:03:45 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:50:38 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ Fixed&	Fixed::operator=( const Fixed &overload ) {
 }
 
 int	Fixed::getRawBits( void ) const {
-	std::cout << "getRawBits number function called" << std::endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return this->_fpoint;
 }
 
 void	Fixed::setRawBits( int const raw ) {
-	std::cout << "setRawBits number function called" << std::endl;
+	std::cout << "setRawBits member function called" << std::endl;
 	this->_fpoint = raw;
 }
