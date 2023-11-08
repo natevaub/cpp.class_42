@@ -6,20 +6,21 @@
 #    By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 20:26:37 by nvaubien          #+#    #+#              #
-#    Updated: 2023/10/27 11:42:29 by nvaubien         ###   ########.fr        #
+#    Updated: 2023/11/08 03:14:16 by nvaubien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME      = inTriangle
 CC        = c++
-FLAGS     = -Wall -Wextra -Werror -std=c++98
+# FLAGS     = -Wall -Wextra -Werror -std=c++98
 
 OBJS_DIR  = objs
 SRCS_DIR  = srcs
 
-SRCS      = $(SRCS_DIR)/			\
-			$(SRCS_DIR)/			\
-			$(SRCS_DIR)/			\
+SRCS      = $(SRCS_DIR)/bsp.cpp		\
+			$(SRCS_DIR)/Fixed.cpp	\
+			$(SRCS_DIR)/Point.cpp	\
+			$(SRCS_DIR)/main.cpp	\
 
 OBJS      = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o,$(SRCS))
 

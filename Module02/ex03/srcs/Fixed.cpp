@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:14:05 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/10/04 19:05:53 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/08 04:54:02 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Fixed::Fixed( const int param_int ): _fpoint(param_int << _fbits) {
 	// std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed( const float param_float ): _fpoint(std::roundf(param_float * (1 << _fbits))) {
+Fixed::Fixed( const float param_float ): _fpoint(roundf(param_float * (1 << _fbits))) {
 	// std::cout << "Float constructor called" << std::endl;
 }
 
@@ -155,4 +155,15 @@ const	Fixed&	Fixed::max( const Fixed &a, const Fixed &b) {
 	if (a.getRawBits() > b.getRawBits())
 		return a;
 	return b;
+}
+
+Fixed	Fixed::abs(Fixed a)
+{
+	Fixed	res;
+
+	if (a._fpoint < 0)
+		res._fpoint = -a._fpoint;
+	else
+		res._fpoint = a._fpoint;
+	return (res);
 }

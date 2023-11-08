@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:13:14 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/10/05 18:05:20 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/08 04:53:17 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ class Fixed {
 		static const	Fixed&	min( const Fixed&a, const Fixed &b);
 		static			Fixed&	max( Fixed &a, Fixed &b );
 		static const	Fixed&	max( const Fixed&a, const Fixed &b);
+
+		static Fixed	abs(Fixed f);
 
 	private:
 		int						_fpoint;

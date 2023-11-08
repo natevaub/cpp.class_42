@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 18:55:56 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/10/07 18:14:17 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/08 05:11:45 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,5 @@ class Point {
 		const Fixed	_x;
 		const Fixed	_y;
 };
-
-bool bsp( Point const a, Point const b, Point const c, Point const point);
-
-/*	Utility function to calculate area of a triangle formed by
-	( x1, y1 ), ( x2, y2 ), ( x3, y3 ) */
-
 
 #endif
