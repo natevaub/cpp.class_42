@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:13:14 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/09/27 14:12:11 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/09 14:52:32 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,5 @@ class Fixed {
 };
 
 std::ostream & operator<<(std::ostream & o, Fixed const & i);
-
-
 
 #endif
