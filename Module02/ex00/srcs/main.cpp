@@ -6,12 +6,11 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 23:17:07 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/11/09 14:56:22 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:17:49 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.class.hpp"
-#include "Point.class.hpp"
 #include <iostream>
 
 int main( void ) {
