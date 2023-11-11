@@ -1,12 +1,11 @@
-#ifndef DIAMONTRAP_HPP
-#define DIAMONTRAP_HPP
+#ifndef DIAMONTRAP_CLASS_HPP
+#define DIAMONTRAP_CLASS_HPP
 
 #include "ScavTrap.class.hpp"
 #include "FragTrap.class.hpp"
 
 class DiamondTrap : public ScavTrap, public FragTrap {
 	public:
-		DiamondTrap( void );
 		DiamondTrap( std::string name );
 		~DiamondTrap( void );
 
@@ -17,7 +16,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 		void	whoAmI( void );
 
 	private:
-		std::string _name;
+		std::string _Name;
 };
 
 #endif

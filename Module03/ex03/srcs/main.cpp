@@ -12,17 +12,12 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include "DiamondTrap.class.hpp"
 #include "ClapTrap.class.hpp"
 #include "ScavTrap.class.hpp"
 #include "FragTrap.class.hpp"
 
 int	main( void ) {
-	ClapTrap Hugo("Hughh");
-
-	ScavTrap sv1("Kamaru Usman");
-	ScavTrap sv2(sv1);
-	ScavTrap sv3("Khamzat Chimaev");
-	sv3.guardGate();
-	sv3.attack("Kamaru Usman");
-	FragTrap ft1("Conor McGregor");
+	DiamondTrap dt1("dt1");
+	dt1.whoAmI();
 }

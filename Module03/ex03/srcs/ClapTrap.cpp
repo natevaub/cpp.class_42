@@ -14,7 +14,7 @@
 #include "ClapTrap.class.hpp"
 
 ClapTrap::ClapTrap( void ):
-	_Name( "Darius "), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
+	_Name( "Darius"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
 	std::cout << "ClapTrap " << this->_Name << " is born " << std::endl;
 }

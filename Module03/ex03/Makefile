@@ -1,12 +1,17 @@
 NAME      = exec
 CC        = c++
-FLAGS     = -Wall -Wextra -Werror -std=c++98
+FLAGS     = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
 OBJS_DIR  = objs
 SRCS_DIR  = srcs
 
-SRCS      = $(SRCS_DIR)/			\
-			$(SRCS_DIR)/			\
+SRCS      = $(SRCS_DIR)/main.cpp			\
+			$(SRCS_DIR)/FragTrap.cpp		\
+			$(SRCS_DIR)/ClapTrap.cpp		\
+			$(SRCS_DIR)/ScavTrap.cpp		\
+			$(SRCS_DIR)/DiamondTrap.cpp		\
+
+			
 
 OBJS      = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o,$(SRCS))
 
