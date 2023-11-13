@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/11 19:40:14 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/12 02:53:00 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.class.hpp"
 #include "Cat.class.hpp"
 #include "Dog.class.hpp"
@@ -7,25 +19,6 @@
 #include <string>
 
 int main( void ) {
-	/*
-	std::cout << "------------------- Animal -------------------" << std::endl;
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-
-	std::cout << "------------------- Wrong Animal -------------------" << std::endl;
-	const WrongAnimal* wrong = new WrongAnimal();
-	const WrongAnimal* wrongCat = new WrongCat();
-	std::cout << wrong->getType() << " " << std::endl;
-	std::cout << wrongCat->getType() << " " << std::endl;
-	wrong->makeSound();
-	wrongCat->makeSound();
-	*/
 	// 42 TESTS
 	std::cout << "---- 42 TESTS ----" << std::endl;
 	const Animal* meta = new Animal();

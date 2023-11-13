@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 03:43:22 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/11/12 22:18:13 by nvaubien         ###   ########.fr       */
+/*   Created: 2023/11/11 19:40:26 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/12 04:12:07 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.class.hpp"
+#ifndef DOG_CLASS_HPP
+#define DOG_CLASS_HPP
 
-int	main( void ) {
-	ClapTrap Hugo("Hughh");
-	
-	Hugo.attack("Darius");
-	Hugo.beRepaired(50);
-	Hugo.takeDamage(10);
+#include "Animal.class.hpp"
+#include "Brain.class.hpp"
+#include <iostream>
+#include <string>
 
-	return 0;
-}
+class Dog : public Animal {
+	public:
+	Dog( void );
+	~Dog( void );
+
+	Dog( Dog const & rhs );
+	Dog&	operator=( Dog const &rhs );
+
+	void	makeSound( void ) const;
+	Brain 	*getBrain( void ) const;
+
+	protected:
+		Brain	*_brain;
+};
+
+#endif

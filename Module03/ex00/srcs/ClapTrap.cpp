@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 03:43:34 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/10/16 19:20:24 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/12 22:20:56 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,32 +47,29 @@ void	ClapTrap::attack( const std::string& target) {
 		std::cout << "ClapTrap " << _Name << " is out of energy" << std::endl;
 		return;
 	}
-	std::cout << "ClapTrap" << _Name << " attacks " << target;
+	std::cout << "ClapTrap " << _Name << " attacks " << target;
 	std::cout << ", causing " << _AttackDamage << " points of damage!" << std::endl;
 	_EnergyPoints -= 1;
 }
 
 
 void	ClapTrap::takeDamage( unsigned int amount ) {
-	if (_HitPoints > 0)
-	{
-		if (_HitPoints - amount <= 0) {
-			_HitPoints = 0;
-			std::cout << "ClapTrap " << this->_Name << " took " << _HitPoints << "damage from " << _Name;
-			std::cout << "ClapTrap " << this->_Name << " he is dead" << std::endl;
-		}
-			
-		else if (_HitPoints - amount > 0) {
-			_HitPoints -= amount;
-			std::cout << "ClapTrap " << this->_Name << " took " << amount << " damage : " << std::endl;
-		}
+	if (_HitPoints <= amount ) {
+		std::cout << "ClapTrap " << this->_Name << " is dead" << std::endl;
+		return ;
 	}
+	_HitPoints -= amount;
+	std::cout << "ClapTrap " << this->_Name << " has been attacked by " << amount << " points" << std::endl;
+	std::cout << "ClapTrap " << this->_Name << " has now " << _HitPoints << " hitpoints " << std::endl;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount ) {
 	if (_HitPoints <= 0) {
 		std::cout << "ClapTrap " << this->_Name << " is out of energy" << std::endl;
+		return;
 	}
-	_EnergyPoints += amount;
+	_HitPoints += amount;
+	_EnergyPoints -= 1;
 	std::cout << "ClapTrap " << this->_Name << " has been repaired by " << amount << " points" << std::endl;
+	std::cout << "ClapTrap " << this->_Name << " has now " << _HitPoints << " hitpoints " << std::endl;
 }

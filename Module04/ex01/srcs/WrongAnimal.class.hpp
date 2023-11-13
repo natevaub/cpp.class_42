@@ -1,28 +1,35 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.class.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 03:43:22 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/10/14 03:43:25 by nvaubien         ###   ########.fr       */
+/*   Created: 2023/11/12 04:02:14 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/12 04:02:17 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
+
 #include <iostream>
-#include "ClapTrap.class.hpp"
-#include "ScavTrap.class.hpp"
-#include "FragTrap.class.hpp"
+#include <string>
 
-int	main( void ) {
-	FragTrap	Hugo( "Hughh" );
+class WrongAnimal {
+	public:
+		WrongAnimal( void );
+		WrongAnimal( std::string type);
+		virtual ~WrongAnimal( void );
 
-	Hugo.attack("Darius");
-	Hugo.beRepaired(50);
-	Hugo.takeDamage(10);
-	Hugo.highFivesGuys();
+		WrongAnimal( WrongAnimal const &src );
+		WrongAnimal&	operator=( WrongAnimal const &rhs );
 
-	return 0;
-}
+		void			makeSound( void ) const;
+		std::string		getType( void ) const;
+
+	protected:
+		std::string	_type;
+};
+
+#endif

@@ -16,11 +16,12 @@
 #include "ScavTrap.class.hpp"
 
 int	main( void ) {
-	ClapTrap Hugo("Hughh");
+	ScavTrap Hugo("Hughh");
+	
+	Hugo.attack("Darius");
+	Hugo.beRepaired(50);
+	Hugo.takeDamage(10);
+	Hugo.guardGate();
 
-	ScavTrap sv1("Kamaru Usman");
-	ScavTrap sv2 = sv1;
-	ScavTrap sv3("Khamzat Chimaev");
-	sv3.guardGate();
-	sv3.attack("Kamaru Usman");
+	return 0;
 }
