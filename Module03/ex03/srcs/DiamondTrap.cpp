@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 17:51:08 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/11/11 19:18:56 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:53:27 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ DiamondTrap::DiamondTrap( std::string name ) : ClapTrap( name ), ScavTrap( name 
 	this->_EnergyPoints = ScavTrap::_EnergyPoints;
 	this->_AttackDamage = FragTrap::_AttackDamage;
 	
-	std::cout << "# DiamondTrap # - " << this->_Name << " constructed." << std::endl;
+	std::cout << "DiamondTrap " << this->_Name << " constructed." << std::endl;
 }
 
 DiamondTrap::~DiamondTrap() {
-	std::cout << "# DiamondTrap # - " << this->_Name << " is dead." << std::endl;
+	std::cout << "DiamondTrap " << this->_Name << " is dead." << std::endl;
 }
 
 void	DiamondTrap::whoAmI( void ) {
-	std::cout << "DiamondTrap Name " << this->_Name << " -------------------";
+	std::cout << "my DiamondTrap name " << this->_Name << " -----";
 	std::cout << " my ClapTrap name is " << ClapTrap::_Name << std::endl;
 }
 

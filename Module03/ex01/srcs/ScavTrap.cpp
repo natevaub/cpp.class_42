@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 03:49:18 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/11/12 22:49:47 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:56:58 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ ScavTrap&	ScavTrap::operator=( const ScavTrap &rhs ) {
 }
 
 void	ScavTrap::guardGate( void ) {
-	std::cout << this->_Name << " is now in Gate keeper mode " << std::endl;
+	std::cout <<"ScavTrap " << this->_Name << " is now in Gate keeper mode " << std::endl;
 }
 
 void	ScavTrap::attack( std::string const& target ) {

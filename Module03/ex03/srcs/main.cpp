@@ -19,5 +19,7 @@
 
 int	main( void ) {
 	DiamondTrap dt1("dt1");
+	dt1.highFivesGuys();
+	dt1.guardGate();
 	dt1.whoAmI();
 }
