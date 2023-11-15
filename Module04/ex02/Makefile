@@ -1,12 +1,17 @@
-NAME      = 
+NAME      = animals
 CC        = c++
-FLAGS     = -Wall -Wextra -Werror -std=c++98
+FLAGS     = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 OBJS_DIR  = objs
 SRCS_DIR  = srcs
 
-SRCS      = $(SRCS_DIR)/			\
-			$(SRCS_DIR)/			\
+SRCS      = $(SRCS_DIR)/main.cpp			\
+			$(SRCS_DIR)/AAnimal.cpp			\
+			$(SRCS_DIR)/Dog.cpp			\
+			$(SRCS_DIR)/Cat.cpp			\
+			$(SRCS_DIR)/WrongCat.cpp			\
+			$(SRCS_DIR)/WrongAnimal.cpp			\
+			$(SRCS_DIR)/Brain.cpp			\
 
 OBJS      = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o,$(SRCS))
 

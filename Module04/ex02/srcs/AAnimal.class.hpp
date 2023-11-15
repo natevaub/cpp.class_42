@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.class.hpp                                   :+:      :+:    :+:   */
+/*   AAnimal.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 04:00:22 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/11/14 21:51:33 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/15 01:37:38 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CLASS_HPP
-#define ANIMAL_CLASS_HPP
+#ifndef AANIMAL_CLASS_HPP
+#define AANIMAL_CLASS_HPP
 
 #include <iostream>
 #include "Brain.class.hpp"
@@ -36,6 +36,7 @@ class Animal {
 
 		virtual void			makeSound( void ) const;
 		virtual	std::string		getType( void ) const;
+		virtual	Brain*			getBrain( void ) const = 0;
 
 	protected:
 		std::string	_type;

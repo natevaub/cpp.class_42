@@ -6,12 +6,12 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:39:57 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/11/15 00:46:09 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/15 01:12:15 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.class.hpp"
-#include "Animal.class.hpp"
+#include "AAnimal.class.hpp"
 #include "Brain.class.hpp"
 #include <iostream>
 #include <string>

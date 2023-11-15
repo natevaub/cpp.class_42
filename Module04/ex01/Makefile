@@ -1,6 +1,6 @@
 NAME      = animals
 CC        = c++
-FLAGS     = -Wall -Wextra -Werror -std=c++98
+FLAGS     = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 OBJS_DIR  = objs
 SRCS_DIR  = srcs

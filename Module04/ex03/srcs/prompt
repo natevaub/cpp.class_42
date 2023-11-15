@@ -1,0 +1,536 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   prompt                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 03:53:52 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:42:38 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef AMATERIA_CLASS_HPP
+# define AMATERIA_CLASS_HPP
+
+#include <string>
+#include "ICharacter.class.hpp"
+
+class ICharacter;
+
+class AMateria {
+	public:
+		AMateria( void );
+		virtual ~AMateria( void );
+		AMateria( std::string const & type );
+		AMateria( AMateria const &rhs );
+		AMateria&	operator=( AMateria const &rhs );
+
+		std::string const & getType() const;
+
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
+
+	protected:
+		std::string _type;
+
+};
+
+#endif/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 04:37:08 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 04:46:40 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "AMateria.class.hpp"
+#include <iostream>
+#include <string>
+
+AMateria::AMateria( void ) : _type("") {
+	std::cout << "AMateria default constructor called" << std::endl;
+}
+
+AMateria::~AMateria( void ) {
+	std::cout << "AMateria destructor called" << std::endl;
+}
+
+AMateria::AMateria( std::string const & type ) : _type( type ) {
+	std::cout << "AMateria " << this->_type << " constructor called" << std::endl;
+}
+
+AMateria::AMateria( AMateria const &rhs ) {
+	std::cout << "AMateria copy constructor called" << std::endl;
+	*this = rhs;
+}
+
+AMateria&	AMateria::operator=( AMateria const &rhs ) {
+	std::cout << "AMateria assignation operator called" << std::endl;
+	if (this != &rhs) {
+		this->_type = rhs._type;
+	}
+	return *this;
+}
+
+std::string const & AMateria::getType() const {
+	return this->_type;
+}
+
+void AMateria::use(ICharacter& target) {
+	(void)target;
+	std::cout << "* Does stricly nothing *" << std::endl;
+}/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.class.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 05:22:56 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 15:45:04 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+#ifndef CHARACTER_CLASS_HPP
+# define CHARACTER_CLASS_HPP
+
+#include "ICharacter.class.hpp"
+
+class Character : public ICharacter {
+	public:
+		Character( std::string name );
+		virtual ~Character( void );
+		Character( Character const &rhs );
+		Character&	operator=( Character const &rhs );
+
+		virtual std::string const & getName() const;
+		virtual void equip(AMateria* m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter& target);
+
+	private:
+		std::string	_name;
+		AMateria*	_inventory[4];
+		int			_nbMateria;
+};
+#endif
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 15:43:43 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:05:09 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Character.class.hpp"
+#include "ICharacter.class.hpp"
+#include <iostream>
+#include <string>
+
+Character::Character( std::string name ) : _name( name ) {
+	std::cout << "Character " << this->_name << " created" << std::endl;
+	for (int i = 0; i < 4; i++) {
+		this->_inventory[i] = NULL;
+	}
+}
+
+Character::~Character( void ) {
+	std::cout << "Character " << this->_name << " destroyed" << std::endl;
+	for (int i = 0; i < 4; i++) {
+			delete this->_inventory[i];
+		}
+}
+
+Character::Character( Character const &rhs ) {
+	std::cout << "Character copy constructor called" << std::endl;
+	*this = rhs;
+}
+
+Character&	Character::operator=( Character const &rhs ) {
+	std::cout << "Character assignation operator called" << std::endl;
+	if (this != &rhs) {
+		this->_name = rhs._name;
+		for (int i = 0; i < 4; i++) {
+			this->_inventory[i] = rhs._inventory[i];
+		}
+	}
+	return *this;
+}
+
+std::string const & Character::getName() const {
+	return this->_name;
+}
+
+void	Character::equip( AMateria* m ) {
+	for (int i = 0; i < 4; i++) {
+		if (this->_inventory[i] == NULL) {
+			this->_inventory[i] = m;
+			std::cout << "Character " << this->_name << " equiped with " << m->getType() << " at index " << i << std::endl;
+			return;
+		}
+	}
+	std::cout << "Character " << this->_name << " can't equip " << m->getType() << " materia" << std::endl;
+}
+
+void	Character::unequip( int idx ) {
+	if (this->_inventory[idx] != NULL) {
+		delete this->_inventory[idx];
+		this->_inventory[idx] = NULL;
+		std::cout << "Character " << this->_name << " unequiped at index " << idx << std::endl;
+		return;
+	}
+	std::cout << "Character " << this->_name << " has nothing to unequip at index " << idx << std::endl;
+}
+
+void	Character::use( int idx, ICharacter& target ) {
+	if (this->_inventory[idx] != NULL) {
+		this->_inventory[idx]->use(target);
+		std::cout << "Character " << this->_name << " used " << this->_inventory[idx]->getType() << " on " << target.getName() << std::endl;
+		return;
+	}
+	else {
+		std::cout << "Character " << this->_name << " has nothing to use at index " << idx << std::endl;
+	}
+}/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.class.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 04:51:27 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:39:53 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CURE_CLASS_HPP
+# define CURE_CLASS_HPP
+
+#include "AMateria.class.hpp"
+
+class Cure : public AMateria {
+	public:
+		Cure( void );
+		virtual ~Cure( void );
+		Cure( Cure const &rhs );
+		Cure&	operator=( Cure const &rhs );
+
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
+};
+
+#endif/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 04:51:58 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:40:30 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Cure.class.hpp"
+#include "AMateria.class.hpp"
+#include <iostream>
+#include <string>
+
+Cure::Cure( void ) : AMateria( "Cure" ) {
+	std::cout << "Cure default constructor called" << std::endl;
+}
+
+Cure::~Cure( void ) {
+	std::cout << "Cure destructor called" << std::endl;
+}
+
+Cure::Cure( Cure const &rhs ) {
+	std::cout << "Cure copy constructor called" << std::endl;
+	*this = rhs;
+}
+
+Cure&	Cure::operator=( Cure const &rhs ) {
+	std::cout << "Cure assignation operator called" << std::endl;
+	if (this != &rhs) {
+		this->_type = rhs._type;
+	}
+	return *this;
+}
+
+AMateria* Cure::clone() const {
+	return new Cure();
+}
+
+void	Cure::use(ICharacter& target) {
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Ice.class.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 04:33:18 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:40:07 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ICE_CLASS_HPP
+# define ICE_CLASS_HPP
+
+#include "AMateria.class.hpp"
+
+class Ice : public AMateria {
+	public:
+		Ice( void );
+		virtual ~Ice( void );
+		Ice( Ice const &rhs );
+		Ice&	operator=( Ice const &rhs );
+
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
+};
+
+#endif/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 04:52:03 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:40:53 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Ice.class.hpp"
+#include "AMateria.class.hpp"
+#include <iostream>
+#include <string>
+
+Ice::Ice( void ) : AMateria( "ice" ) {
+	std::cout << "Ice default constructor called" << std::endl;
+}
+
+Ice::~Ice( void ) {
+	std::cout << "Ice destructor called" << std::endl;
+}
+
+Ice::Ice( Ice const &rhs ) {
+	std::cout << "Ice copy constructor called" << std::endl;
+	*this = rhs;
+}
+
+Ice&	Ice::operator=( Ice const &rhs ) {
+	std::cout << "Ice assignation operator called" << std::endl;
+	if (this != &rhs) {
+		this->_type = rhs._type;
+	}
+	return *this;
+}
+
+AMateria* Ice::clone() const {
+	return new Ice();
+}
+
+void	Ice::use(ICharacter& target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ICharacter.class.hpp                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 04:51:34 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:38:20 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ICHARACTER_CLASS_HPP
+# define ICHARACTER_CLASS_HPP
+
+#include "AMateria.class.hpp"
+
+class Amateria;
+
+class ICharacter {
+	public:
+		virtual ~ICharacter( void ) {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
+};
+
+#endif/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   IMateriaSource.class.hpp                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 04:51:38 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:34:52 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef IMATERIASOURCE_CLASS_HPP
+# define IMATERIASOURCE_CLASS_HPP
+
+#include "AMateria.class.hpp"
+
+class IMateriaSource {
+	public:
+		virtual ~IMateriaSource( void ) {}
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
+};
+
+#endif/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 04:51:52 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:27:19 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include	"IMateriaSource.class.hpp"
+#include	"AMateria.class.hpp"
+#include	"ICharacter.class.hpp"
+#include	"Character.class.hpp"
+#include	"MateriaSource.class.hpp"
+#include	"Ice.class.hpp"
+#include	"Cure.class.hpp"
+#include	<iostream>
+#include	<string>
+
+int main()
+{
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+}/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.class.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 16:08:28 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:21:29 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef MATERIASOURCE_CLASS_HPP
+# define MATERIASOURCE_CLASS_HPP
+
+#include "IMateriaSource.class.hpp"
+#include "AMateria.class.hpp"
+
+class MateriaSource : public IMateriaSource {
+	public:
+		MateriaSource( void );
+		virtual ~MateriaSource( void );
+		MateriaSource( MateriaSource const &rhs );
+		MateriaSource&	operator=( MateriaSource const &rhs );
+
+		virtual void learnMateria(AMateria* m);
+		virtual AMateria* createMateria(std::string const & type);
+
+	private:
+		AMateria*		_materia[4];
+};
+
+
+
+#endif/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/15 04:52:13 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:26:32 by nvaubien         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "IMateriaSource.class.hpp"
+#include "MateriaSource.class.hpp"
+#include <iostream>
+#include <string>
+
+MateriaSource::MateriaSource( void ) {
+	for (int i = 0; i < 4; i++) {
+		this->_materia[i] = NULL;
+	}
+}
+
+MateriaSource::~MateriaSource( void ) {
+	for (int i = 0; i < 4; i++) {
+		delete this->_materia[i];
+	}
+}
+
+MateriaSource::MateriaSource( MateriaSource const &rhs ) {
+	*this = rhs;
+}
+
+MateriaSource&	MateriaSource::operator=( MateriaSource const &rhs ) {
+	if (this != &rhs) {
+		for (int i = 0; i < 4; i++) {
+			this->_materia[i] = rhs._materia[i];
+		}
+	}
+	return *this;
+}
+
+void	MateriaSource::learnMateria(AMateria* m) {
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_materia[i] == NULL) {
+			this->_materia[i] = m;
+			std::cout << "MateriaSource learned " << m->getType() << " at index " << i << std::endl;
+			return;
+		}
+	}
+	std::cout << "MateriaSource can't learn " << m->getType() << std::endl;
+}
+
+AMateria*	MateriaSource::createMateria( std::string const& type ) {
+	for (int i = 0; i < 4; i++) {
+		if (this->_materia[i] && this->_materia[i]->getType() == type) {
+			std::cout << "MateriaSource created " << type << " at index " << i << std::endl;
+			return this->_materia[i]->clone();
+		}
+	}
+	return 0;
+}

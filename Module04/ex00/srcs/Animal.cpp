@@ -3,11 +3,11 @@
 #include <string>
 
 Animal::Animal( void ) : _type( "Animal" ) {
-	std::cout << this->_type << " constructor called" << std::endl;
+	std::cout << "Animal " << " constructor called" << std::endl;
 }
 
 Animal::Animal( std::string type ) : _type( type ) {
-	std::cout << "Animal" << this->_type << " constructor called" << std::endl;
+	std::cout << "Animal " << " constructor called" << std::endl;
 }
 
 Animal::~Animal( void ) {

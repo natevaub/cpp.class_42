@@ -6,11 +6,11 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:40:14 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/11/15 00:46:21 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/15 02:16:19 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.class.hpp"
+#include "AAnimal.class.hpp"
 #include "Cat.class.hpp"
 #include "Brain.class.hpp"
 #include "Dog.class.hpp"

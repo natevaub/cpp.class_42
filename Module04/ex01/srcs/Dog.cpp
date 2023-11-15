@@ -6,7 +6,7 @@
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 04:00:44 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/11/12 04:17:51 by nvaubien         ###   ########.fr       */
+/*   Updated: 2023/11/15 00:45:54 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Dog::Dog( void ) : Animal( "Dog" ) {
 
 Dog::~Dog( void ) {
 	std::cout << this->_type << " destructor called" << std::endl;
+	delete this->_brain;
 }
 
 void	Dog::makeSound( void ) const {
@@ -38,6 +39,8 @@ Dog&	Dog::operator=( Dog const &rhs ) {
 	std::cout << "Dog assignment operator called" << std::endl;
 	if ( this != &rhs ) {
 		this->_type = rhs.getType();
+		delete this->_brain;
+		this->_brain = new Brain( *rhs._brain );
 	}
 	return *this;
 }

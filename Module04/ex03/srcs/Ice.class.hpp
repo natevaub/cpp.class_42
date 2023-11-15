@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.class.hpp                                 :+:      :+:    :+:   */
+/*   Ice.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvaubien <nvaubien@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 04:02:19 by nvaubien          #+#    #+#             */
-/*   Updated: 2023/11/13 23:12:58 by nvaubien         ###   ########.fr       */
+/*   Created: 2023/11/15 04:33:18 by nvaubien          #+#    #+#             */
+/*   Updated: 2023/11/15 16:40:07 by nvaubien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+#ifndef ICE_CLASS_HPP
+# define ICE_CLASS_HPP
 
-#include "WrongAnimal.class.hpp"
-#include <iostream>
-#include <string>
+#include "AMateria.class.hpp"
 
-class WrongCat : public WrongAnimal {
+class Ice : public AMateria {
 	public:
-		WrongCat( void );
-		virtual ~WrongCat( void );
+		Ice( void );
+		virtual ~Ice( void );
+		Ice( Ice const &rhs );
+		Ice&	operator=( Ice const &rhs );
 
-		void	makeSound( void ) const;
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
 };
 
 #endif
